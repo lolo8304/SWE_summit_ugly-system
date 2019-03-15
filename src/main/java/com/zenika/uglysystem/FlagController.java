@@ -15,7 +15,6 @@ public class FlagController {
     @GetMapping
     public List<String> getFlags() {
         return asList(
-                "SECRET_COMMIT_DEV0_SEC1_OPS0_xtce92s3u3njh54746uni43fw7t352he83z82sa4prj6a953"
         );
     }
 
