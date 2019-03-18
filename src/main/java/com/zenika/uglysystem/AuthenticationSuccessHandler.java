@@ -16,6 +16,6 @@ public class AuthenticationSuccessHandler implements ApplicationListener<Authent
     @Override
     public void onApplicationEvent(AuthenticationSuccessEvent event) {
         Authentication authentication = event.getAuthentication();
-        LOG.info("{} logged with password {}", ((User) authentication.getPrincipal()).getUsername(), authentication.getCredentials());
+        LOG.info("{} logged", ((User) authentication.getPrincipal()).getUsername());
     }
 }
