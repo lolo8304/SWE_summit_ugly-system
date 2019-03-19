@@ -30,7 +30,6 @@ public class SecurityConfig {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http
-                    .csrf().disable()
                     .authorizeRequests()
                     .mvcMatchers("/admin").authenticated()
                     .and()
@@ -44,6 +43,7 @@ public class SecurityConfig {
     }
 
     @Configuration
+    @Order(2)
     public static class OtherSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
         @Override
