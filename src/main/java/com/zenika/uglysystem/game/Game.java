@@ -43,14 +43,11 @@ public class Game {
 	}
 
 	public boolean add(String playerName) {
-		
-		
 	    players.add(playerName);
 	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
-	    
-	    LOGGER.log(Level.INFO, layerName + " was added");
+	    LOGGER.log(Level.INFO, playerName + " was added");
 	    LOGGER.log(Level.INFO, "They are player number " + players.size());
 
 		return true;
