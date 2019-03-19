@@ -19,6 +19,20 @@ pipeline {
             }
         }
 
+        stage('SonarQube analysis') {
+            agent {
+                docker {
+                    reuseNode true
+                    image 'maven:3.5.3-jdk-8-slim'
+                }
+            }
+            steps {
+                sh '''
+                mvn  sonar:sonar -Dsonar.host.url=obade.ageofdevsecops.com/sonar
+                '''
+            }
+        }
+        
         stage('Deploy') {
             environment {
                 SSH_KEY = credentials('SSH_KEY')
