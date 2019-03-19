@@ -49,7 +49,7 @@ public class SecurityConfig {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http
-                    .authorizeRequests()
+                    .authorizeRequests().authenticated()
                     //.antMatchers("/**")
                     //.hasIpAddress("172.31.21.82")
                     .anyRequest().permitAll();
