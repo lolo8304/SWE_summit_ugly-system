@@ -3,6 +3,7 @@ package com.zenika.uglysystem.game;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.logging.Logger;
+import java.util.logging.Level;
 
 
 public class Game {
