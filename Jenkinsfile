@@ -30,6 +30,9 @@ pipeline {
                 sh '''
                 mvn  sonar:sonar -Dsonar.host.url=http://obade.ageofdevsecops.com/sonar
                 '''
+                sh '''
+                mvn  verify
+                '''
             }
         }
 
