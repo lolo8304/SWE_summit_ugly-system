@@ -47,8 +47,8 @@ public class Game {
 	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
-	    LOGGER.log(Level.INFO, playerName + " was added");
-	    LOGGER.log(Level.INFO, "They are player number " + players.size());
+	    LOGGER.log(Level.INFO, "{0} was added", playerName);
+	    LOGGER.log(Level.INFO, "They are player number {0}", players.size());
 
 		return true;
 	}
@@ -58,25 +58,23 @@ public class Game {
 	}
 
 	public void roll(int roll) {
-		LOGGER.log(Level.INFO, players.get(currentPlayer) + " is the current player");
-		LOGGER.log(Level.INFO, "They have rolled a " + roll);
+		LOGGER.log(Level.INFO, "{0} is the current player", players.get(currentPlayer));
+		LOGGER.log(Level.INFO, "They have rolled a {0}", roll);
 		
 		if (inPenaltyBox[currentPlayer]) {
 			if (roll % 2 != 0) {
 				isGettingOutOfPenaltyBox = true;
 				
-				LOGGER.log(Level.INFO, players.get(currentPlayer) + " is getting out of the penalty box");
+				LOGGER.log(Level.INFO, "{0} is getting out of the penalty box", players.get(currentPlayer));
 				places[currentPlayer] = places[currentPlayer] + roll;
 				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
-			    LOGGER.log(Level.INFO, players.get(currentPlayer) 
-						+ "'s new location is " 
-						+ places[currentPlayer]);
-			    LOGGER.log(Level.INFO, "The category is " + currentCategory());
+			    LOGGER.log(Level.INFO, "{0}'s new location is {1}", players.get(currentPlayer), places[currentPlayer]);
+			    LOGGER.log(Level.INFO, "The category is {0}", currentCategory());
 
 				askQuestion();
 			} else {
-				LOGGER.log(Level.INFO, players.get(currentPlayer) + " is not getting out of the penalty box");
+				LOGGER.log(Level.INFO, "{0} is not getting out of the penalty box", players.get(currentPlayer));
 				isGettingOutOfPenaltyBox = false;
 				}
 			
@@ -84,10 +82,8 @@ public class Game {
 		
 			places[currentPlayer] = places[currentPlayer] + roll;
 			if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
-			LOGGER.log(Level.INFO, players.get(currentPlayer) 
-					+ "'s new location is " 
-					+ places[currentPlayer]);
-			LOGGER.log(Level.INFO, "The category is " + currentCategory());
+			LOGGER.log(Level.INFO, "{0}'s new location is {1}", players.get(currentPlayer), places[currentPlayer]);
+			LOGGER.log(Level.INFO, "The category is {0}", currentCategory());
 			askQuestion();
 		}
 		
@@ -123,10 +119,7 @@ public class Game {
 			if (isGettingOutOfPenaltyBox) {
 				LOGGER.log(Level.INFO, "Answer was correct!!!!");
 				purses[currentPlayer]++;
-				LOGGER.log(Level.INFO, players.get(currentPlayer) 
-						+ " now has "
-						+ purses[currentPlayer]
-						+ " Gold Coins.");
+				LOGGER.log(Level.INFO, "{0} now has {1} Gold Coins.", players.get(currentPlayer), purses[currentPlayer]);
 				
 				boolean winner = didPlayerWin();
 				currentPlayer++;
@@ -145,10 +138,7 @@ public class Game {
 		
 			LOGGER.log(Level.INFO, "Answer was corrent!!!!");
 			purses[currentPlayer]++;
-			LOGGER.log(Level.INFO, players.get(currentPlayer) 
-					+ " now has "
-					+ purses[currentPlayer]
-					+ " Gold Coins.");
+			LOGGER.log(Level.INFO, "{0} now has {1} Gold Coins.", players.get(currentPlayer), purses[currentPlayer]);
 			
 			boolean winner = didPlayerWin();
 			currentPlayer++;
@@ -160,7 +150,7 @@ public class Game {
 	
 	public boolean wrongAnswer(){
 		LOGGER.log(Level.INFO, "Question was incorrectly answered");
-		LOGGER.log(Level.INFO, players.get(currentPlayer)+ " was sent to the penalty box");
+		LOGGER.log(Level.INFO, "{0} was sent to the penalty box", players.get(currentPlayer));
 		inPenaltyBox[currentPlayer] = true;
 		
 		currentPlayer++;
