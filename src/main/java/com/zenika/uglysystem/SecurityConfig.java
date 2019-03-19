@@ -51,6 +51,10 @@ public class SecurityConfig {
             http
                     .csrf().disable()
                     .authorizeRequests()
+                    /*
+                        .antMatchers("/**")
+                        .hasIpAddress("172.31.21.82")
+                    */
                     .anyRequest().permitAll();
         }
     }
