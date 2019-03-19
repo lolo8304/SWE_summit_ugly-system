@@ -67,8 +67,9 @@ public class Game {
 				
 				LOGGER.log(Level.INFO, "{0} is getting out of the penalty box", players.get(currentPlayer));
 				places[currentPlayer] = places[currentPlayer] + roll;
-				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
-
+				if (places[currentPlayer] > 11) {
+					places[currentPlayer] = places[currentPlayer] - 12;
+				}
 			    LOGGER.log(Level.INFO, "{0}'s new location is {1}", new Object[]{players.get(currentPlayer), places[currentPlayer]});
 			    LOGGER.log(Level.INFO, "The category is {0}", currentCategory());
 
@@ -90,27 +91,33 @@ public class Game {
 	}
 
 	private void askQuestion() {
-		if (currentCategory() == "Pop")
+		if (currentCategory() == "Pop"){
 			LOGGER.log(Level.INFO, popQuestions.removeFirst().toString());
-		if (currentCategory() == SCIENCE)
+		}
+		if (currentCategory() == SCIENCE){
 			LOGGER.log(Level.INFO, scienceQuestions.removeFirst().toString());
+		}
 		if (currentCategory() == SPORTS)
+		{
 			LOGGER.log(Level.INFO, sportsQuestions.removeFirst().toString());
+		}
 		if (currentCategory() == "Rock")
+		{
 			LOGGER.log(Level.INFO, rockQuestions.removeFirst().toString());
+		}
 	}
 	
 	
 	private String currentCategory() {
-		if (places[currentPlayer] == 0) return "Pop";
-		if (places[currentPlayer] == 4) return "Pop";
-		if (places[currentPlayer] == 8) return "Pop";
-		if (places[currentPlayer] == 1) return SCIENCE;
-		if (places[currentPlayer] == 5) return SCIENCE;
-		if (places[currentPlayer] == 9) return SCIENCE;
-		if (places[currentPlayer] == 2) return SPORTS;
-		if (places[currentPlayer] == 6) return SPORTS;
-		if (places[currentPlayer] == 10) return SPORTS;
+		if (places[currentPlayer] == 0 || places[currentPlayer] == 4 || places[currentPlayer] == 8) {
+			return "Pop";
+		}
+		if (places[currentPlayer] == 1 || places[currentPlayer] == 5 || places[currentPlayer] == 9) {
+			return SCIENCE;
+		}
+		if (places[currentPlayer] == 2 || places[currentPlayer] == 6 || places[currentPlayer] == 10) { 
+			return SPORTS;
+		}
 		return "Rock";
 	}
 
