@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
-
 public class Game {
     ArrayList players = new ArrayList();
     int[] places = new int[6];
