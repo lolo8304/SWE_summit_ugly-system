@@ -28,7 +28,7 @@ pipeline {
             }
             steps {
                 sh '''
-                mvn  sonar:sonar -Dsonar.host.url=obade.ageofdevsecops.com/sonar
+                mvn  sonar:sonar -Dsonar.host.url=http://obade.ageofdevsecops.com/sonar
                 '''
             }
         }
