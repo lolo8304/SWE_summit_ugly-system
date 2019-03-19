@@ -1,0 +1,53 @@
+[33mcommit 75e65089a4e60584b0fc2d6ff5c8d400541488eb[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: EC2 Default User <ec2-user@ip-172-31-3-3.eu-west-1.compute.internal>
+Date:   Tue Mar 19 09:25:56 2019 +0000
+
+    update pipeline for sonar
+
+[33mcommit 5c2d8f42b61ada7f4a86bea3271c8bf89eb30040[m
+Author: EC2 Default User <ec2-user@ip-172-31-3-3.eu-west-1.compute.internal>
+Date:   Tue Mar 19 09:20:23 2019 +0000
+
+    update flag, security config and tests
+
+[33mcommit 6c2b066b4921fe801953e8a6662c929bdc30f7ba[m
+Author: EC2 Default User <ec2-user@ip-172-31-3-3.eu-west-1.compute.internal>
+Date:   Tue Mar 19 09:13:48 2019 +0000
+
+    Add Sonar to Jenkins Pipeline
+
+[33mcommit 4bdd4ce3f1a8fd20e4753f038abcaea9baed310b[m
+Author: EC2 Default User <ec2-user@ip-172-31-3-3.eu-west-1.compute.internal>
+Date:   Tue Mar 19 09:06:08 2019 +0000
+
+    Add Sonar to Jenkiins Pipeline
+
+[33mcommit 1c60931419ce23d4f8da59e7a44de2bd0b326e73[m
+Author: EC2 Default User <ec2-user@ip-172-31-3-3.eu-west-1.compute.internal>
+Date:   Mon Mar 18 14:49:15 2019 +0000
+
+    add another node
+
+[33mcommit ceb3cae70aff659213dd2d10ed0b2ed7697e2c47[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: EC2 Default User <ec2-user@ip-172-31-3-3.eu-west-1.compute.internal>
+Date:   Mon Mar 18 14:45:12 2019 +0000
+
+    pipeline update
+
+[33mcommit 7d5b4aa7500b17122750489150f07c523040453a[m
+Author: EC2 Default User <ec2-user@ip-172-31-3-3.eu-west-1.compute.internal>
+Date:   Mon Mar 18 14:06:01 2019 +0000
+
+    fix logs on user password and endpoint config
+
+[33mcommit 9e5579eae978038a4cee849dbe614994f9210032[m
+Author: Badradine Boulahia <badra.boul@gmail.com>
+Date:   Fri Mar 15 10:33:22 2019 +0100
+
+    remove flag
+
+[33mcommit 9c1b4d95e9142f3461e10b4a26c03dd219d3ccc8[m
+Author: zeroual <abid1991@hotmail.fr>
+Date:   Mon Jan 7 10:53:27 2019 +0100
+
+    init
