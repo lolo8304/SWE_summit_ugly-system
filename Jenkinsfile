@@ -30,9 +30,12 @@ pipeline {
                 sh '''
                 mvn  sonar:sonar -Dsonar.host.url=http://obade.ageofdevsecops.com/sonar
                 '''
+                sh '''
+                mvn  verify
+                '''
             }
         }
-        
+
         stage('Deploy') {
             environment {
                 SSH_KEY = credentials('SSH_KEY')
