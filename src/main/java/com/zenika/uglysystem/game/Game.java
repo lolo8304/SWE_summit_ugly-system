@@ -69,7 +69,7 @@ public class Game {
 				places[currentPlayer] = places[currentPlayer] + roll;
 				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
-			    LOGGER.log(Level.INFO, "{0}'s new location is {1}", players.get(currentPlayer), places[currentPlayer]);
+			    LOGGER.log(Level.INFO, "{0}'s new location is {1}", new Object[]{players.get(currentPlayer), places[currentPlayer]});
 			    LOGGER.log(Level.INFO, "The category is {0}", currentCategory());
 
 				askQuestion();
@@ -82,7 +82,7 @@ public class Game {
 		
 			places[currentPlayer] = places[currentPlayer] + roll;
 			if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
-			LOGGER.log(Level.INFO, "{0}'s new location is {1}", players.get(currentPlayer), places[currentPlayer]);
+			LOGGER.log(Level.INFO, "{0}'s new location is {1}", new Object[]{players.get(currentPlayer), places[currentPlayer]});
 			LOGGER.log(Level.INFO, "The category is {0}", currentCategory());
 			askQuestion();
 		}
@@ -119,7 +119,7 @@ public class Game {
 			if (isGettingOutOfPenaltyBox) {
 				LOGGER.log(Level.INFO, "Answer was correct!!!!");
 				purses[currentPlayer]++;
-				LOGGER.log(Level.INFO, "{0} now has {1} Gold Coins.", players.get(currentPlayer), purses[currentPlayer]);
+				LOGGER.log(Level.INFO, "{0} now has {1} Gold Coins.", new Object[]{players.get(currentPlayer), purses[currentPlayer]});
 				
 				boolean winner = didPlayerWin();
 				currentPlayer++;
@@ -138,7 +138,7 @@ public class Game {
 		
 			LOGGER.log(Level.INFO, "Answer was corrent!!!!");
 			purses[currentPlayer]++;
-			LOGGER.log(Level.INFO, "{0} now has {1} Gold Coins.", players.get(currentPlayer), purses[currentPlayer]);
+			LOGGER.log(Level.INFO, "{0} now has {1} Gold Coins.", new Object[]{players.get(currentPlayer), purses[currentPlayer]});
 			
 			boolean winner = didPlayerWin();
 			currentPlayer++;
