@@ -47,8 +47,8 @@ public class Game {
 	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
-	    LOGGER.log(Level.INFO, playerName + " was added");
-	    LOGGER.log(Level.INFO, "They are player number " + players.size());
+	    LOGGER.info(playerName + " was added");
+	    LOGGER.info("They are player number " + players.size());
 
 		return true;
 	}
@@ -58,25 +58,25 @@ public class Game {
 	}
 
 	public void roll(int roll) {
-		LOGGER.log(Level.INFO, players.get(currentPlayer) + " is the current player");
-		LOGGER.log(Level.INFO, "They have rolled a " + roll);
+		LOGGER.info(players.get(currentPlayer) + " is the current player");
+		LOGGER.info("They have rolled a " + roll);
 		
 		if (inPenaltyBox[currentPlayer]) {
 			if (roll % 2 != 0) {
 				isGettingOutOfPenaltyBox = true;
 				
-				LOGGER.log(Level.INFO, players.get(currentPlayer) + " is getting out of the penalty box");
+				LOGGER.info(players.get(currentPlayer) + " is getting out of the penalty box");
 				places[currentPlayer] = places[currentPlayer] + roll;
 				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
-			    LOGGER.log(Level.INFO, players.get(currentPlayer) 
+			    LOGGER.info(players.get(currentPlayer) 
 						+ "'s new location is " 
 						+ places[currentPlayer]);
-			    LOGGER.log(Level.INFO, "The category is " + currentCategory());
+			    LOGGER.info("The category is " + currentCategory());
 
 				askQuestion();
 			} else {
-				LOGGER.log(Level.INFO, players.get(currentPlayer) + " is not getting out of the penalty box");
+				LOGGER.info(players.get(currentPlayer) + " is not getting out of the penalty box");
 				isGettingOutOfPenaltyBox = false;
 				}
 			
@@ -84,10 +84,10 @@ public class Game {
 		
 			places[currentPlayer] = places[currentPlayer] + roll;
 			if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
-			LOGGER.log(Level.INFO, players.get(currentPlayer) 
+			LOGGER.info(players.get(currentPlayer) 
 					+ "'s new location is " 
 					+ places[currentPlayer]);
-			LOGGER.log(Level.INFO, "The category is " + currentCategory());
+			LOGGER.info("The category is " + currentCategory());
 			askQuestion();
 		}
 		
@@ -95,13 +95,13 @@ public class Game {
 
 	private void askQuestion() {
 		if (currentCategory() == "Pop")
-			LOGGER.log(Level.INFO, popQuestions.removeFirst());
+			LOGGER.info(popQuestions.removeFirst());
 		if (currentCategory() == SCIENCE)
-			LOGGER.log(Level.INFO, scienceQuestions.removeFirst());
+			LOGGER.info(scienceQuestions.removeFirst());
 		if (currentCategory() == SPORTS)
-			LOGGER.log(Level.INFO, sportsQuestions.removeFirst());
+			LOGGER.info(sportsQuestions.removeFirst());
 		if (currentCategory() == "Rock")
-			LOGGER.log(Level.INFO, rockQuestions.removeFirst());
+			LOGGER.info(rockQuestions.removeFirst());
 	}
 	
 	
@@ -121,9 +121,9 @@ public class Game {
 	public boolean wasCorrectlyAnswered() {
 		if (inPenaltyBox[currentPlayer]){
 			if (isGettingOutOfPenaltyBox) {
-				LOGGER.log(Level.INFO, "Answer was correct!!!!");
+				LOGGER.info("Answer was correct!!!!");
 				purses[currentPlayer]++;
-				LOGGER.log(Level.INFO, players.get(currentPlayer) 
+				LOGGER.info(players.get(currentPlayer) 
 						+ " now has "
 						+ purses[currentPlayer]
 						+ " Gold Coins.");
@@ -143,9 +143,9 @@ public class Game {
 			
 		} else {
 		
-			LOGGER.log(Level.INFO, "Answer was corrent!!!!");
+			LOGGER.info("Answer was corrent!!!!");
 			purses[currentPlayer]++;
-			LOGGER.log(Level.INFO, players.get(currentPlayer) 
+			LOGGER.info(players.get(currentPlayer) 
 					+ " now has "
 					+ purses[currentPlayer]
 					+ " Gold Coins.");
@@ -159,8 +159,8 @@ public class Game {
 	}
 	
 	public boolean wrongAnswer(){
-		LOGGER.log(Level.INFO, "Question was incorrectly answered");
-		LOGGER.log(Level.INFO, players.get(currentPlayer)+ " was sent to the penalty box");
+		LOGGER.info("Question was incorrectly answered");
+		LOGGER.info(players.get(currentPlayer)+ " was sent to the penalty box");
 		inPenaltyBox[currentPlayer] = true;
 		
 		currentPlayer++;
