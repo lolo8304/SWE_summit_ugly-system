@@ -14,20 +14,7 @@ pipeline {
             }
             steps {
                 sh '''
-                mvn  clean install
-                '''
-            }
-        }
-        stage('SonarQube analysis') {
-            agent {
-                docker {
-                    reuseNode true
-                    image 'maven:3.5.3-jdk-8-slim'
-                }
-            }
-            steps {
-                sh '''
-                mvn  sonar:sonar
+                mvn  clean install sonar:sonar
                 '''
             }
         }
