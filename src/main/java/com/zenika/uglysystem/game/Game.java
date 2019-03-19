@@ -19,7 +19,10 @@ public class Game {
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
     
-	private static final Logger LOGGER = Logger.getLogger( ClassName.class.getName() );
+	private static final Logger LOGGER = Logger.getLogger( "GameLogger" );
+	
+	private static final String SCIENCE = "Science";
+	private static final String SPORTS = "Sports";
     
     public  Game(){
     	for (int i = 0; i < 50; i++) {
@@ -95,9 +98,9 @@ public class Game {
 	private void askQuestion() {
 		if (currentCategory() == "Pop")
 			LOGGER.log(Level.INFO, popQuestions.removeFirst());
-		if (currentCategory() == "Science")
+		if (currentCategory() == SCIENCE)
 			LOGGER.log(Level.INFO, scienceQuestions.removeFirst());
-		if (currentCategory() == "Sports")
+		if (currentCategory() == SPORTS)
 			LOGGER.log(Level.INFO, sportsQuestions.removeFirst());
 		if (currentCategory() == "Rock")
 			LOGGER.log(Level.INFO, rockQuestions.removeFirst());
@@ -108,12 +111,12 @@ public class Game {
 		if (places[currentPlayer] == 0) return "Pop";
 		if (places[currentPlayer] == 4) return "Pop";
 		if (places[currentPlayer] == 8) return "Pop";
-		if (places[currentPlayer] == 1) return "Science";
-		if (places[currentPlayer] == 5) return "Science";
-		if (places[currentPlayer] == 9) return "Science";
-		if (places[currentPlayer] == 2) return "Sports";
-		if (places[currentPlayer] == 6) return "Sports";
-		if (places[currentPlayer] == 10) return "Sports";
+		if (places[currentPlayer] == 1) return SCIENCE;
+		if (places[currentPlayer] == 5) return SCIENCE;
+		if (places[currentPlayer] == 9) return SCIENCE;
+		if (places[currentPlayer] == 2) return SPORTS;
+		if (places[currentPlayer] == 6) return SPORTS;
+		if (places[currentPlayer] == 10) return SPORTS;
 		return "Rock";
 	}
 
