@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-public class UglySystemApplicationTests2 {
+public class UglySystemApplicationTests {
 
     @Autowired
     private MockMvc mvc;

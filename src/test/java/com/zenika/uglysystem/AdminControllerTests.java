@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(AdminController.class)
-public class MyUglySystemAdminControllerTests {
+public class AdminControllerTests {
 
     @MockBean
     private AdminController adminController;
