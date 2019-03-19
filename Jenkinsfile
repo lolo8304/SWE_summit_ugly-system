@@ -14,10 +14,11 @@ pipeline {
             }
             steps {
                 sh '''
-                mvn  clean install sonar:sonar
+                mvn  clean install
                 '''
             }
         }
+
         stage('Deploy') {
             environment {
                 SSH_KEY = credentials('SSH_KEY')
