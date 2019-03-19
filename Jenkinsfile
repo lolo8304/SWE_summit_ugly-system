@@ -19,11 +19,16 @@ pipeline {
             }
         }
         stage('SonarQube analysis') {
-            steps{
-                withSonarQubeEnv('Sonar') {
-                  // requires SonarQube Scanner for Maven 3.2+
-                  sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
+            agent {
+                docker {
+                    reuseNode true
+                    image 'maven:3.5.3-jdk-8-slim'
                 }
+            }
+            steps {
+                sh '''
+                mvn  sonar:sonar
+                '''
             }
         }
         stage('Deploy') {
