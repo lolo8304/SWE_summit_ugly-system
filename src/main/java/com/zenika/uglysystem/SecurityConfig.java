@@ -49,12 +49,9 @@ public class SecurityConfig {
         @Override
         protected void configure(HttpSecurity http) throws Exception {
             http
-                    .csrf().disable()
                     .authorizeRequests()
-                    /*
-                        .antMatchers("/**")
-                        .hasIpAddress("172.31.21.82")
-                    */
+                    //.antMatchers("/**")
+                    //.hasIpAddress("172.31.21.82")
                     .anyRequest().permitAll();
         }
     }
