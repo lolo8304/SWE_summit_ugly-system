@@ -6,9 +6,9 @@ import java.util.Random;
 
 public class GameRunner {
 
-	private static boolean notAWinner;
-
 	public static void main(String[] args) {
+		boolean notAWinner;
+
 		Game aGame = new Game();
 		
 		aGame.add("Chet");
