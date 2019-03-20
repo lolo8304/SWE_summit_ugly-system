@@ -1,6 +1,7 @@
 package com.zenika.uglysystem;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -15,11 +16,18 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    @Value("${admin.user}")
+    private String adminUser;
+
+    @Value("${admin.pwd}")
+    private String adminPwd;
+
     @Bean
     public UserDetailsService userDetailsService() {
         // ensure the passwords are encoded properly
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("admin").password("M33KTczYfsmu9CWk").roles("USER", "ADMIN").build());
+        manager.createUser(User.withUsername(adminUser).password(adminPwd).roles("USER", "ADMIN").build());
+        //manager.createUser(User.withUsername("admin").password("M33KTczYfsmu9CWk").roles("USER", "ADMIN").build());
         return manager;
     }
 

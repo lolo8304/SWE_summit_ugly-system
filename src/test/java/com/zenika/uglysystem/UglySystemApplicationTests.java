@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -21,7 +22,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
-public class UglySystemApplicationTests2 {
+public class UglySystemApplicationTests {
 
     @Autowired
     private MockMvc mvc;
@@ -33,16 +34,23 @@ public class UglySystemApplicationTests2 {
     public void contextLoads() {
     }
 
-    /*
+    @Test
+    public void should_return_the_home_Endpoint() throws Exception{
+        mvc.perform(MockMvcRequestBuilders.get("/")
+                .accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("_link")))
+                .andDo(MockMvcResultHandlers.print());
+    }
+
     @Test
     public void should_return_list_of_flags() throws Exception{
         mvc.perform(MockMvcRequestBuilders.get("/flags")
                 .accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
                 .andExpect(status().isOk())
-                .andExpect(content().string(FlagController.getAllFlags()))
+                .andExpect(content().string(containsString("QUIZ")))
                 .andDo(MockMvcResultHandlers.print());
     }
-    */
 
     @Test
     public void should_return_error_message_for_admin_access() throws Exception{
