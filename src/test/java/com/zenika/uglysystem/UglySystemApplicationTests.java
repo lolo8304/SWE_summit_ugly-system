@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
+import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -31,6 +32,24 @@ public class UglySystemApplicationTests {
 
     @Test
     public void contextLoads() {
+    }
+
+    @Test
+    public void should_return_the_home_Endpoint() throws Exception{
+        mvc.perform(MockMvcRequestBuilders.get("/")
+                .accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("_link")))
+                .andDo(MockMvcResultHandlers.print());
+    }
+
+    @Test
+    public void should_return_list_of_flags() throws Exception{
+        mvc.perform(MockMvcRequestBuilders.get("/flags")
+                .accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("QUIZ")))
+                .andDo(MockMvcResultHandlers.print());
     }
 
     @Test
