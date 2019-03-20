@@ -27,9 +27,9 @@ public class FlagController {
             
             SECRET_0_DEV5_SEC3-OPS4_2HcQaXfsHrFw3P2LD4JIY0nbd71Rsj07LX34jc6J9345mcAs
     */
-    public static List<String> getAllFlags() {
+    public List<String> getAllFlags() {
 
-        List<String> flags = GameState.getAllFlags();
+        List<String> flags = getFlagList();
         flags.remove(
                 "SECRET_0_DEV5_SEC3-OPS4_2HcQaXfsHrFw3P2LD4JIY0nbd71Rsj07LX34jc6J9345mcAs"
         );
@@ -38,7 +38,7 @@ public class FlagController {
 
     @GetMapping
     public List<String> getFlags() {
-        return FlagController.getAllFlags();
+        return getAllFlags();
     }
     
     private ArrayList<String> getFlagList(){

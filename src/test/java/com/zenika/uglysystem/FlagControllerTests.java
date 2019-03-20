@@ -25,8 +25,6 @@ public class FlagControllerTests {
 
     @Test
     public void testFlags() throws Exception {
-        given(this.flagController.getFlags())
-                .willReturn(FlagController.getAllFlags());
     }
 
 }
