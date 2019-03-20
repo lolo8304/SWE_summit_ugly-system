@@ -33,17 +33,6 @@ public class UglySystemApplicationTests {
     public void contextLoads() {
     }
 
-    /*
-    @Test
-    public void should_return_list_of_flags() throws Exception{
-        mvc.perform(MockMvcRequestBuilders.get("/flags")
-                .accept(MediaType.APPLICATION_JSON_UTF8_VALUE))
-                .andExpect(status().isOk())
-                .andExpect(content().string(FlagController.getAllFlags()))
-                .andDo(MockMvcResultHandlers.print());
-    }
-    */
-
     @Test
     public void should_return_error_message_for_admin_access() throws Exception{
         mvc.perform(MockMvcRequestBuilders.get("/admin")
