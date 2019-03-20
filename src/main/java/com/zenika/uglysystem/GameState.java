@@ -2,6 +2,7 @@ package com.zenika.uglysystem;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -22,10 +23,9 @@ public class GameState {
 
         //Get file from resources folder
         ClassLoader classLoader = GameState.class.getClassLoader();
-        File file = new File(classLoader.getResource(fileName).getFile());
+        InputStream in = GameState.class.getResourceAsStream("/"+fileName);
         List<String> keys = new ArrayList<String>();
-        try (Scanner scanner = new Scanner(file)) {
-
+        try (Scanner scanner = new Scanner(in)) {
             try {
                 while (scanner.hasNextLine()) {
                     String line = scanner.nextLine();
@@ -34,9 +34,6 @@ public class GameState {
             } finally {
                 scanner.close();
             }
-
-        } catch (IOException e) {
-            e.printStackTrace();
         }
         return keys;
 
