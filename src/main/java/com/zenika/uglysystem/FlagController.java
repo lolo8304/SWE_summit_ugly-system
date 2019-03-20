@@ -13,10 +13,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 @RestController
 @RequestMapping("/flags")
 public class FlagController {
+
+    private static final Logger LOG = LoggerFactory.getLogger(FlagController.class);
 
     @Autowired
     private Environment environment;
@@ -53,7 +58,7 @@ public class FlagController {
                 lines.add(str);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.error("{}",e.getMessage());
         }
         return lines;
     }
